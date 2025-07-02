@@ -1,0 +1,7 @@
+@use "../utilities/utilities";
+
+:is(main#desktop) {
+    @extend .row, .align-stretch, .wrap, .gap-4;
+
+    padding: clamp(10px, 5%, 3rem);
+}

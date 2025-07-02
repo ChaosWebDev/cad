@@ -1,0 +1,6 @@
+@use "../utilities/utilities";
+
+:is(main#login) {
+    @extend .column, .align-center;
+    padding-top: 5%;
+}
