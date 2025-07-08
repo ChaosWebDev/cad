@@ -14,6 +14,10 @@ Route::middleware('guest')->group(function () {
 // ! AUTHENTICATED ROUTES ! //
 Route::middleware('auth')->group(function () {
     Route::get('/', Desktop::class)->name('desktop');
+
+    Route::prefix('/incident')->name('incident.')->group(function () {
+        Route::get('/create', Desktop::class)->name('create');
+    });
 });
 
 

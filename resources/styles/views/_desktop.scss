@@ -1,0 +1,28 @@
+@use "../utilities/utilities";
+
+main:is(#desktop) {
+    @extend .row, .wrap, .gap-4, .align-stretch;
+
+    padding: clamp(5px, 5%, 2rem);
+
+    .icon {
+        @extend .column, .align-center, .gap-3;
+        border: 1px solid var(--bodyBG);
+        border-radius: 10px;
+        padding: 1rem;
+
+        width: clamp(100px, 150px, 200px);
+
+        img {
+            width: 80%;
+        }
+
+        .label {
+            text-align: center;
+        }
+
+        &:hover {
+            border-color: var(--clickableBorderHover);
+        }
+    }
+}
