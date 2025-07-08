@@ -11,12 +11,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', Login::class)->name('login');
 });
 
-// ! OPEN ROUTES ! //
-Route::get('/', Desktop::class)->name('desktop');
-
 // ! AUTHENTICATED ROUTES ! //
 Route::middleware('auth')->group(function () {
-    //
+    Route::get('/', Desktop::class)->name('desktop');
 });
 
 

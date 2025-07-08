@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Auth;
 
 class Login extends Component
 {
-    public $email, $password;
+    public $username, $password;
     public bool $remember_me = false;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'username' => ['required', 'string'],
         'password' => ['required', 'string'],
         'remember_me' => ['nullable', 'boolean']
     ];
@@ -21,12 +21,12 @@ class Login extends Component
         $this->validate();
         $remember = $this->remember_me == true;
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $remember)) {
-            return $this->addError('email', "Invalid credentials, please try again.");
+        if (!Auth::attempt(['username' => $this->username, 'password' => $this->password], $remember)) {
+            return $this->addError('username', "Invalid credentials, please try again.");
         }
 
         session()->regenerate();
-        return redirect()->route('dashboard');
+        return redirect()->route('desktop');
     }
 
     public function render()
